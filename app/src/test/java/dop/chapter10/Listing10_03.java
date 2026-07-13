@@ -1,6 +1,7 @@
 package dop.chapter10;
 
 public class Listing10_03 {
+
   /**
    * ───────────────────────────────────────────────────────
    * Listing 10.3
@@ -18,11 +19,6 @@ public class Listing10_03 {
 
 
 
-
-
-
-
-
-
   record TableRecord() {}
+
 }

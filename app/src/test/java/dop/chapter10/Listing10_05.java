@@ -12,12 +12,12 @@ public class Listing10_05 {
    * ───────────────────────────────────────────────────────
    */
   interface CloudStore {
-      CloudObject getObject(
-          String key
-//               ▲
-//               └──── The key tells us where to find the particular object
-//                     in the team’s object store
-      );
+    CloudObject getObject(
+        String key
+//             ▲
+//             └──── The key tells us where to find the particular object
+//                   in the team’s object store
+    );
   }
 
   interface CloudObject {

@@ -13,15 +13,15 @@ public class Listing10_04 {
    */
   void example(Database database) {
     List<Insert> inserts = List.of(
-      new Insert("ACCOUNTS", TableRecord.builder().set(/*???*/).build()),
-      new Insert("ACCOUNTS", TableRecord.builder().set(/*???*/).build())
-      /*???*/
+        new Insert("ACCOUNTS", TableRecord.builder().set(/*???*/).build()),
+        new Insert("ACCOUNTS", TableRecord.builder().set(/*???*/).build())
+        /*???*/
     );
     List<Update> updates = List.of(
-      new Update("ACCOUNTS", TableRecord.builder().set(/*???*/).build())
-      /*???*/
+        new Update("ACCOUNTS", TableRecord.builder().set(/*???*/).build())
+        /*???*/
     );
-    database.trasact(inserts, updates);
+    database.transact(inserts, updates);
   }
 
 
@@ -31,29 +31,23 @@ public class Listing10_04 {
 
 
 
-
-
-
-
-
-
-  record Insert(String table, TableRecord record){}
-  record Update(String table, TableRecord record){}
+  record Insert(String table, TableRecord record) {}
+  record Update(String table, TableRecord record) {}
 
   interface Database {
-    void trasact(List<Insert> inserts, List<Update> updates);
+    void transact(List<Insert> inserts, List<Update> updates);
   }
 
   static class TableRecord {
-      static TableRecord builder() {
-        return new TableRecord();
-      }
-      TableRecord set() {
-        return this;
-      }
-      TableRecord build() {
-        return this;
-      }
+    static TableRecord builder() {
+      return new TableRecord();
+    }
+    TableRecord set() {
+      return this;
+    }
+    TableRecord build() {
+      return this;
+    }
   }
 
 }
