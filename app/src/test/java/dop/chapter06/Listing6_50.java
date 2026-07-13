@@ -17,7 +17,7 @@ public class Listing6_50 {
       LateFee<Draft> draft
   ) {
     BigDecimal total = draft.total().value();
-    if (total.compareTo(rules.minimumFeeThreshold()) < 0){
+    if (total.compareTo(rules.minimumFeeThreshold()) < 0) {
       return new NotBillable(draft, new Reason("..."));
     }
     else if (total.compareTo(rules.maximumFeeThreshold()) > 0) {

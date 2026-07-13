@@ -199,7 +199,7 @@ public class Listing5_05_and_5_06 {
         return null; // (just to make things compile)
       }
       void requestReview(Invoice invoice, Customer customer) {}
-      ApprovalStatus getApprovalStatus(Customer customer){
+      ApprovalStatus getApprovalStatus(Customer customer) {
         return null; // (just to make things compile)
       }
     }

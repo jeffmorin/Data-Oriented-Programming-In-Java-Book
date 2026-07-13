@@ -36,7 +36,7 @@ public class Listing2_44_and_2_45 {
    * ───────────────────────────────────────────────────────
    */
   Optional<Person> mostPopular2(List<Person> people) {
-    record Popularity(Person person, int totalFriends){};
+    record Popularity(Person person, int totalFriends) {};
     //     ▲
     //     └───── Declaring a new record type right where we need it.
 
@@ -75,6 +75,6 @@ public class Listing2_44_and_2_45 {
   }
 
   record Person(String firstName, String lastName) {}
-  record Tuple<A, B>(A first, B second){}
+  record Tuple<A, B>(A first, B second) {}
 
 }

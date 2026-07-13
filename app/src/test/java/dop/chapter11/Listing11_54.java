@@ -23,7 +23,7 @@ public class Listing11_54 {
         Optional<Boolean> premiumStatus,   //  ┘    trivially enumerated
         USD total,                         //  ┐
         String tag                         //  ┘◄── But these cannot be. We can only
-    ){}                                    //       approximate by generating enough samples
+    ) {}                                    //       approximate by generating enough samples
 
     static RawData add(RawData a, RawData b) {     //  ┐
         // complicated merging logic from          //  │

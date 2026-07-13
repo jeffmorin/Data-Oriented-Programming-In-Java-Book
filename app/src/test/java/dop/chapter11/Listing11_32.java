@@ -38,7 +38,7 @@ public class Listing11_32 {
 
     enum Region {AMER}
     enum Segment {ENTERPRISE}
-    record AccountId(String value){}
-    record Sector(String value){}
-    record Account(AccountId id, Region region, USD spend, Segment segment, Sector sector, Instant updatedOn){}
+    record AccountId(String value) {}
+    record Sector(String value) {}
+    record Account(AccountId id, Region region, USD spend, Segment segment, Sector sector, Instant updatedOn) {}
 }

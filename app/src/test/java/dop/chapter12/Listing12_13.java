@@ -77,7 +77,7 @@ public class Listing12_13 {
 
     DataGen datagen;
     Inventory inventory;
-    record Thing(String shortCode){}
+    record Thing(String shortCode) {}
     interface DataGen {
         String randomStr(int min, int max);
     }

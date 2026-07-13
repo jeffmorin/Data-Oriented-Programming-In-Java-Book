@@ -47,7 +47,7 @@ public class Listing11_57 {
 
 
     Mirror mirror;
-    record Export(String id){}
+    record Export(String id) {}
     Export randPrimary() { return new Export(""); }
     Export randMirror() { return new Export(""); }
     int compareTo(Export left, Export right) { return 0; }

@@ -48,7 +48,7 @@ public class Listing9_15 {
         boolean hasGiftOptions;
 
         public void addOrUpdateItems(AddItemsRequest request) {}
-        public void recalculateSubtotal(){}
+        public void recalculateSubtotal() {}
     }
     @Data
     public static class CartItem {

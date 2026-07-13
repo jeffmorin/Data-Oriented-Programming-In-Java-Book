@@ -48,7 +48,7 @@ public class Listing9_14 {
         boolean hasGiftOptions;
 
         public void addOrUpdateItems(AddItemsRequest request) {}
-        public void recalculateSubtotal(){}
+        public void recalculateSubtotal() {}
     }
     @Data
     public static class CartItem {
@@ -166,7 +166,7 @@ public class Listing9_14 {
     void example() {
         class __ {
             // We define this fully is a later listing
-            record Item(long desiredQty, long availableQty){}
+            record Item(long desiredQty, long availableQty) {}
 
             record ValidCart(
                 List<Item> active,

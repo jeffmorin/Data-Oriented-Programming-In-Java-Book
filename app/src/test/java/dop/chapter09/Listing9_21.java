@@ -48,7 +48,7 @@ public class Listing9_21 {
         boolean hasGiftOptions;
 
         public void addOrUpdateItems(AddItemsRequest request) {}
-        public void recalculateSubtotal(){}
+        public void recalculateSubtotal() {}
     }
     @Data
     public static class CartItem {
@@ -167,7 +167,7 @@ public class Listing9_21 {
         record ProductSeller(
                 String productId,
                 String sellerId
-        ){
+        ) {
             ProductSeller {
                 Objects.requireNonNull(productId);
                 Objects.requireNonNull(sellerId);

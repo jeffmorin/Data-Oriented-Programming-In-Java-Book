@@ -8,7 +8,7 @@ public class Listing12_07 {
      * The lifecycle modeled as a sealed data type
      * ───────────────────────────────────────────────────────
      */
-    record TaskId(String value){}
+    record TaskId(String value) {}
     sealed interface Task {
         record Started(TaskId id /* other attrs */) implements Task {}   //  ┐
         record Completed(TaskId id /* other attrs */) implements Task {} //  │◄── The three states

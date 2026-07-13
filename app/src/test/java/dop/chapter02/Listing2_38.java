@@ -26,7 +26,7 @@ public class Listing2_38 {
 
 
 
-  record Person(String name, List<String> friends){
+  record Person(String name, List<String> friends) {
     Person {
       friends = List.copyOf(friends);
     }

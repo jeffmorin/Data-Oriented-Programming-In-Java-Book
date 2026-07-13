@@ -12,7 +12,7 @@ public class Listing12_16 {
      * An example approach to name spacing resources
      * ───────────────────────────────────────────────────────
      */
-    record Namespace(String owner, String suite, String testName){
+    record Namespace(String owner, String suite, String testName) {
 //         ^ This is the data we use to disambuate test resources
         static String ROOT = "integ";
 //                    ^ An arbitrary string that's at the root of the "tree." We can use it

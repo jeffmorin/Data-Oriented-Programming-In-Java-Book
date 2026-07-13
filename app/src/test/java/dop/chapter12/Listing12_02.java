@@ -90,7 +90,7 @@ public class Listing12_02 {
 
 
     MyDependencyInjector myDependencyInjector;
-    record TaskGroup(String value){}
+    record TaskGroup(String value) {}
     record Task(UUID id, TaskGroup taskGroup, Instant arrivedAt, Instant completeBy) {
         static Builder builder() { return new Builder(); }
         Task withId(UUID id) { return new Task(id, taskGroup, arrivedAt, completeBy); }

@@ -80,8 +80,8 @@ public class Listing11_27 {
 
 
     enum Region {AMER}
-    record Account(AccountId id){}
-    record AccountId(String value){}
+    record Account(AccountId id) {}
+    record AccountId(String value) {}
     static Account mkAcnt(Region region, USD spend) { return new Account(new AccountId("")); }
     static <A> Set<Set<A>> powerSet(Set<A> items) { return Set.of(items); }
     static <A> Set<A> without(Set<A> left, A item) { return left; }

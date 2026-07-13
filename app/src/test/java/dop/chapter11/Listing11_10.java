@@ -69,9 +69,9 @@ public class Listing11_10 {
 
     enum Region {AMER, LA, EMEA /*etc...*/;}
     enum Segment {ENTERPRISE, STRATEGIC, EXISTING, /*etc...*/ }
-    record AccountId(String value){}
-    record Sector(String value){}
-    record Account(AccountId id, Region region, USD spend, Segment segment, Sector sector, Instant updatedOn){}
+    record AccountId(String value) {}
+    record Sector(String value) {}
+    record Account(AccountId id, Region region, USD spend, Segment segment, Sector sector, Instant updatedOn) {}
 
     static List<Account> createAccounts() {
         return List.of();

@@ -8,7 +8,7 @@ public class Listing2_32 {
    * Recreating the Vector type as a record
    * ───────────────────────────────────────────────────────
    */
-  record Vector(double x, double y){}    // ◄── Recreating our Vector implementation from listing 2.7, but now using a record
+  record Vector(double x, double y) {}    // ◄── Recreating our Vector implementation from listing 2.7, but now using a record
 
   void example() {
         // ┌───── Like good value objects, what they are is determined by their equality

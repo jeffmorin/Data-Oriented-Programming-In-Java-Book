@@ -75,8 +75,8 @@ public class Listing11_05 {
     enum CustomerRating{GOOD, POOR;}
     enum InvoiceType { STANDARD, LATEFEE;}
     enum Status{ OPEN, CLOSED;}
-    record CustomerId(String value){}
-    record Invoice(CustomerId customerId, InvoiceType type, Status status, LocalDate dueOn){}
+    record CustomerId(String value) {}
+    record Invoice(CustomerId customerId, InvoiceType type, Status status, LocalDate dueOn) {}
     interface RatingsAPI {
         CustomerRating getRating(String id);
     }

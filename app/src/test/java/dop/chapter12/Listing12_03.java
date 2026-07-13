@@ -50,7 +50,7 @@ public class Listing12_03 {
     ReportsRepo reportsRepo;
     ReportsQueue reportsQueue;
     MyService myService;
-    record Account(Segment segment, SalesChannel channel, Region region){}
+    record Account(Segment segment, SalesChannel channel, Region region) {}
     enum Segment {ENTERPRISE}
     enum SalesChannel {Internal}
     enum Region {AMER}

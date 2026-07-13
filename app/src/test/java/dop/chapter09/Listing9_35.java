@@ -48,7 +48,7 @@ public class Listing9_35 {
         boolean hasGiftOptions;
 
         public void addOrUpdateItems(AddItemsRequest request) {}
-        public void recalculateSubtotal(){}
+        public void recalculateSubtotal() {}
     }
     @Data
     public static class CartItem {
@@ -164,16 +164,16 @@ public class Listing9_35 {
      */
     @Test
     void example() {
-        record ProductSeller(String productId, String sellerId){}
-        record Item(ProductSeller productSeller){}
+        record ProductSeller(String productId, String sellerId) {}
+        record Item(ProductSeller productSeller) {}
         record ValidCart(
                 Map<ProductSeller, Item> active,
                 Map<ProductSeller, Item> saved
-        ){}
+        ) {}
         record UnbalancedCart(
                 Map<ProductSeller, Item> active,
                 Map<ProductSeller, Item> saved
-        ){}
+        ) {}
 
         class __ {
             CartItemValidator cartItemValidator;
@@ -181,7 +181,7 @@ public class Listing9_35 {
             record ValidAddItemsRequest(
                 UnbalancedCart cart,
                 Map<ProductSeller, Item> incoming
-            ){}
+            ) {}
 
             ValidAddItemsRequest validate(Session session, AddItemsRequest request) {
                 Set<ValidationError> errors = cartItemValidator.validate(request);

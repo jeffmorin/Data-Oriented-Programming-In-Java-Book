@@ -42,7 +42,7 @@ public class Listing11_40 {
 
 
     enum Region {AMER, LA, EMEA}
-    record AccountId(String value){}
+    record AccountId(String value) {}
     record Account(AccountId id, Region region) {
         Account withRegion(Region region) { return new Account(id, region); }
         Account withId(AccountId id) { return new Account(id, region); }

@@ -42,7 +42,7 @@ public class Listing11_11 {
 
 
 
-    record Account(String id){}
+    record Account(String id) {}
     static List<Account> createAccounts() {
         return List.of();
     }

@@ -38,7 +38,7 @@ public class Listing3_25_to_3_26 {
     // serialized that way when it enters our system). The sample ID
     // is made up of multiple pieces of information. Each has its own
     // constraints and things that make it *it*.
-    record PositiveInt(int value){
+    record PositiveInt(int value) {
         // constructor omitted for brevity
     }
 

@@ -79,7 +79,7 @@ public class Listing11_49 {
     record Account(Region region, USD spend) {
         Account withSpend(USD spend) { return new Account(region, spend); }
     }
-    record Discount(String id){}
+    record Discount(String id) {}
     static Account mkAcnt() { return new Account(AMER, USD.valueOf(0.0)); }
     static <A> java.util.stream.Stream<A> concat(java.util.stream.Stream<A>... streams) {
         return java.util.Arrays.stream(streams).flatMap(java.util.function.Function.identity());

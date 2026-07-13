@@ -58,7 +58,7 @@ public class Listing12_11 {
 
     Object db;
     int order(Optional<Job> job) { return 0; }
-    record TaskId(String value){}
+    record TaskId(String value) {}
     interface Job {}
     record Started(TaskId id) implements Job {}
     record Failed(TaskId id) implements Job {}

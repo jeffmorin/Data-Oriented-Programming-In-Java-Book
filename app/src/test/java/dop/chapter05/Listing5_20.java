@@ -34,10 +34,10 @@ public class Listing5_20 {
 
   // Note: We don't define these in the listing. They're
   // just here as minimal shims to enable compilation.
-  record PastDue(){}
-  record LatefeeDraft(){}
-  record ReviewedDraft(){}
-  record BillingResult(){}
-  record NeedsReview(){}
+  record PastDue() {}
+  record LatefeeDraft() {}
+  record ReviewedDraft() {}
+  record BillingResult() {}
+  record NeedsReview() {}
 
 }

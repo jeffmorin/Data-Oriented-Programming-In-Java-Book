@@ -33,7 +33,7 @@ public class Listing11_35 {
 
 
 
-    record Account(String id){}
+    record Account(String id) {}
     static Account mkAcnt() {
         return new Account("");
     }

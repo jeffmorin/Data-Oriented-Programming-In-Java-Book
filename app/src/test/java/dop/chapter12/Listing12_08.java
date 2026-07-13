@@ -55,8 +55,8 @@ public class Listing12_08 {
 
 
 
-    record Item(){}
-    record ConditionExpression(){}
+    record Item() {}
+    record ConditionExpression() {}
     interface Job {}
     ConditionExpression or(ConditionExpression... expressions) { return null; }
     ConditionExpression and(ConditionExpression... expressions) { return null; }
@@ -66,6 +66,6 @@ public class Listing12_08 {
     ConditionExpression in(Attribute attribute, List<String> values) { return null; }
     Attribute attr(String name) { return null; }
     Item serialize(Job job) { return null; }
-    record Attribute(String name){}
+    record Attribute(String name) {}
 }
 

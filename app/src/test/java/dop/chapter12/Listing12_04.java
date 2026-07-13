@@ -63,7 +63,7 @@ public class Listing12_04 {
         Region region,
         CountryCode country
         // etc...
-    ){}
+    ) {}
 
     Random rand = new Random();
     Row randRow() {
@@ -80,8 +80,8 @@ public class Listing12_04 {
     ReportsRepo reportsRepo;
     ReportsQueue reportsQueue;
     MyService myService;
-    record Account(AccountId id, CountryCode country){}
-    record AccountId(UUID value){}
+    record Account(AccountId id, CountryCode country) {}
+    record AccountId(UUID value) {}
     enum Region {AMER}
     enum CountryCode {US}
     interface ReportsRepo {

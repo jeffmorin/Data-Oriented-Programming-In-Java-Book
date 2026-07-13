@@ -42,7 +42,7 @@ public class Listing8_34 {
   static String US = "US";
   enum Attribute { Country }
   enum CountryCode { BE }
-  record Account(Object... values){}
+  record Account(Object... values) {}
   record Result(boolean matched, String expected, String found) {}
 
   sealed interface Rule {

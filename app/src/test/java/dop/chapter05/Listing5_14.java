@@ -40,8 +40,8 @@ public class Listing5_14 {
     record Option3() implements Decision {}
   }
 
-  void sendReminderEmail(){}
-  void startProbation(){}
-  void suspendAccount(){}
+  void sendReminderEmail() {}
+  void startProbation() {}
+  void suspendAccount() {}
 
 }

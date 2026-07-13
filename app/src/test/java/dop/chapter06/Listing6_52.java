@@ -20,7 +20,7 @@ public class Listing6_52 {
 //                    ▲
 //                    └──── And a new function that just handles the logic of
 //                          assessing the total and returning its findings
-    if (total.value().compareTo(rules.getMinimumFeeThreshold()) < 0){
+    if (total.value().compareTo(rules.getMinimumFeeThreshold()) < 0) {
       return Assessment.BELOW_MINIMUM;
     } else if (total.value().compareTo(rules.getMaximumFeeThreshold()) > 0) {
       return Assessment.ABOVE_MAXIMUM;

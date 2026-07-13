@@ -16,7 +16,7 @@ public class Services {
 
   public interface ApprovalsAPI {
     enum ApprovalStatus {PENDING, APPROVED, DENIED}
-    record Approval(String id, ApprovalStatus status){}
+    record Approval(String id, ApprovalStatus status) {}
     record CreateApprovalRequest(/*...*/) {}
     Approval createApproval(CreateApprovalRequest request);
     Optional<Approval> getApproval(String approvalId);

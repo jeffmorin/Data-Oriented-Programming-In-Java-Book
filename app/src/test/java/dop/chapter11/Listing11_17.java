@@ -50,8 +50,8 @@ public class Listing11_17 {
 
     static USD ONE = new USD(BigDecimal.ONE);
     enum Region {AMER}
-    record Account(String id){}
-    record Result(String id){}
+    record Account(String id) {}
+    record Result(String id) {}
     static Account mkAcnt(Region region, USD spend) { return new Account(""); }
     static <A> Set<A> union(Set<A> left, Set<A> right) { return left; }
     static class MyService {

@@ -38,7 +38,7 @@ public class Listing8_08 {
 
 
   record SalesOrgId(String value) {}
-  record BillingCode(String value ){}
+  record BillingCode(String value ) {}
   record AccountId(String value) {}
   enum Region { LATAM, NA, EMEA /*...*/ }
   enum CountryCode { AC, AD, AE, AU, BE, FR, US, /*...*/ }

@@ -46,7 +46,7 @@ public class Listing11_08 {
 
 
 
-    record Account(String id){}
+    record Account(String id) {}
     static class FileRepository {
         static List<Account> parse(byte[] bytes) {
             return List.of();

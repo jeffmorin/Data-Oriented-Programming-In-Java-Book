@@ -36,10 +36,10 @@ public class Listing12_05 {
 
 
 
-    record Row(){}
+    record Row() {}
     Row makeRow() {
         return null;
     }
-    record Account(){}
+    record Account() {}
 }
 

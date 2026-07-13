@@ -37,12 +37,12 @@ public class Listing6_58 {
   interface InvoiceRepo { void save(Invoice invoice); }
   interface CustomerRepo { void save(Customer customer); }
   record Invoice() {}
-  record Address(){}
-  record CustomerId(String value){}
+  record Address() {}
+  record CustomerId(String value) {}
   record Customer(String id, Address address, String approvalId) {}
-  record EnhancedCustomer(CustomerId id, Address address){}
+  record EnhancedCustomer(CustomerId id, Address address) {}
   sealed interface Lifecycle {}
-  record ApprovalId(){}
+  record ApprovalId() {}
   record InReview(String id) implements Lifecycle {}
   record LateFee<State extends Lifecycle>(State state, EnhancedCustomer customer) {}
 

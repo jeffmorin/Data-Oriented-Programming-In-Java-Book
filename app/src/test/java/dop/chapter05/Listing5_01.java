@@ -42,8 +42,8 @@ public class Listing5_01 {
 
   interface ApprovalsAPI {
     enum Status {PENDING, APPROVED, DENIED}
-    record Approval(String id, Status status){}
-    record CreateApprovalRequest(/*...*/){}
+    record Approval(String id, Status status) {}
+    record CreateApprovalRequest(/*...*/) {}
     Approval createApproval(CreateApprovalRequest request); //  ◄──┐ Approvals are more complicated. We have to
     Optional<Approval> getApproval(String approvalId);      //  ◄──┘ manage two APIs (read and write).
   }

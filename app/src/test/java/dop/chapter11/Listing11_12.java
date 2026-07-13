@@ -62,8 +62,8 @@ public class Listing11_12 {
 
 
     MyService service;
-    record Account(){}
-    record Result(String id){}
+    record Account() {}
+    record Result(String id) {}
     interface MyService {
         Set<Result> applyDiscounts(Set<Account> accounts);
     }

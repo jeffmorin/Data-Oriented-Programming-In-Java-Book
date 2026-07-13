@@ -80,7 +80,7 @@ public class Listing12_17 {
 
     CloudSDK cloudSDK;
     MyDependencyInjector myDependencyInjector;
-    record Namespace(String owner, String suite, String testName){}
+    record Namespace(String owner, String suite, String testName) {}
     class Scope {
         static String thisTest(Namespace ns) { return null; }
     }

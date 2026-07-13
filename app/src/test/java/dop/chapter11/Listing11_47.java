@@ -47,6 +47,6 @@ public class Listing11_47 {
     static double USD_MIN = 0.0;
     static double USD_MAX = 1_000_000.0;
     enum Region {AMER}
-    record Account(String id){}
+    record Account(String id) {}
     static Account mkAcnt(Region region, USD spend) { return new Account(""); }
 }

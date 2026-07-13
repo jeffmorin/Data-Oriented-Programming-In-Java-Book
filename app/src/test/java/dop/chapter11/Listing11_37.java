@@ -76,10 +76,10 @@ public class Listing11_37 {
 
 
     Region region;
-    record AccountId(){}
+    record AccountId() {}
     enum Region {AMER}
     enum Segment {ENTERPRISE}
-    record Sector(){}
+    record Sector() {}
     Account __;
     Account mkAcnt() { return __; }
     record Threshold(double value) {

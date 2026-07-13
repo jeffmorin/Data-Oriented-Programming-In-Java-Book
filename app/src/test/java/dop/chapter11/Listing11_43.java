@@ -45,7 +45,7 @@ public class Listing11_43 {
 
 
     enum Region {AMER, LA, EMEA}
-    record Sector(String value){}
-    record Account(Region region, Sector sector){}
+    record Sector(String value) {}
+    record Account(Region region, Sector sector) {}
     Account mkAcnt() { return new Account(EMEA, new Sector("")); }
 }

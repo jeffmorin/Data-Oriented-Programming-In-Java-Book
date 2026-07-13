@@ -66,8 +66,8 @@ public class Listing11_13 {
     Account accountB;
     Account accountC;
     Set<Account> shouldBeKept;
-    record Account(String id){}
-    record Result(String id){}
+    record Account(String id) {}
+    record Result(String id) {}
     interface MyService {
         Set<Result> applyDiscounts(Set<Account> accounts);
     }

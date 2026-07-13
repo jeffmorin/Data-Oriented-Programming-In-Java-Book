@@ -12,9 +12,9 @@ public class Listing4_13 {
    * The finished data model
    * ───────────────────────────────────────────────────────
    */
-  record Step(String name){}
+  record Step(String name) {}
 
-  record Template(String name, List<Step> steps){}
+  record Template(String name, List<Step> steps) {}
 
   record Instance(
     String name,

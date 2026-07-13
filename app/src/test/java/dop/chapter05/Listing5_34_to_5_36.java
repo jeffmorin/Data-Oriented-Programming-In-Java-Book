@@ -43,7 +43,7 @@ public class Listing5_34_to_5_36 {
       // We don't define these in the listing, but they'd look
       // something like this.
       static USD zero() { return new USD(BigDecimal.ZERO); }
-      static USD add(USD x, USD y){ return new USD(x.value().add(y.value())); }
+      static USD add(USD x, USD y) { return new USD(x.value().add(y.value())); }
     }
 
     record LateFee(

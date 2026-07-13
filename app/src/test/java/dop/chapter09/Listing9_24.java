@@ -48,7 +48,7 @@ public class Listing9_24 {
         boolean hasGiftOptions;
 
         public void addOrUpdateItems(AddItemsRequest request) {}
-        public void recalculateSubtotal(){}
+        public void recalculateSubtotal() {}
     }
     @Data
     public static class CartItem {
@@ -165,7 +165,7 @@ public class Listing9_24 {
     @Test
     void example() {
         class __ {
-            record ValidCart(/*...*/){}
+            record ValidCart(/*...*/) {}
 
             public void checkout(ValidCart cart) {
                 // logic that’s guarded by its input type  #A

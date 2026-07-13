@@ -11,7 +11,7 @@ public class Listing2_37 {
    * Using the compact constructor to enforce invariants
    * ───────────────────────────────────────────────────────
    */
-  record Person(String name, List<String> friends){
+  record Person(String name, List<String> friends) {
     Person {
       friends = List.copyOf(friends);  // ◄── The copyOf method produces a new UnmodifiableList
                                        //     behind the scenes. This guarantees we always see a

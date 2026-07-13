@@ -48,7 +48,7 @@ public class Listing9_03 {
         boolean hasGiftOptions;
 
         public void addOrUpdateItems(AddItemsRequest request) {}
-        public void recalculateSubtotal(){}
+        public void recalculateSubtotal() {}
     }
     @Data
     public static class CartItem {
@@ -206,8 +206,8 @@ public class Listing9_03 {
                     return Response.OK(cart);
                 }
 
-                void checkIfEligibleForFreeShipping(Cart cart){}
-                void updateRecommendedItems(Cart cart){}
+                void checkIfEligibleForFreeShipping(Cart cart) {}
+                void updateRecommendedItems(Cart cart) {}
 
                 private void updateInventory(CartItem item) {
                     var response = inventoryService.checkInventory(item.getProductId());

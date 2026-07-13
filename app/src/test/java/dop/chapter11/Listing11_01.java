@@ -25,7 +25,7 @@ public class Listing11_01 {
         Status status,                           //  │
         LocalDate dueDate                        //  │
         // (other fields elided)                 //  │
-    ){}                                          //  ┘
+    ) {}                                          //  ┘
 
     // Pure, deterministic functions make testing a delight!
     static boolean isPastDue(
@@ -61,5 +61,5 @@ public class Listing11_01 {
 
 
 
-    record CustmerId(String value){}
+    record CustmerId(String value) {}
 }

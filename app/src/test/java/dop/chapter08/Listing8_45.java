@@ -12,7 +12,7 @@ public class Listing8_45 {
    * ───────────────────────────────────────────────────────
    */
 //                                   ┌───────────────────────────┐
-  record Attr<A>(Attribute attribute, Function<Account, A> getter){}
+  record Attr<A>(Attribute attribute, Function<Account, A> getter) {}
 //                                   └───────────────────────────┘
 //                                               ▲
 //                                               └──── The only way to create an attribute now is to supply evidence

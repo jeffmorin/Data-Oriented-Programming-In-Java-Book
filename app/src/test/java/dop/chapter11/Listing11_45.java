@@ -39,6 +39,6 @@ public class Listing11_45 {
 
 
     Random rand = new Random();
-    record Account(String id){}
+    record Account(String id) {}
     Account mkAcnt() { return new Account(""); }
 }

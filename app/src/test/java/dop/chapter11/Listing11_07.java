@@ -23,13 +23,13 @@ public class Listing11_07 {
     }
     enum Region {AMER, LA, EMEA /*etc...*/;}
     enum Segment {ENTERPRISE, STRATEGIC, EXISTING, /*etc...*/ }
-    record Sector(String value){}
+    record Sector(String value) {}
     record Account(
             AccountId id,
             Region region,
             double spend
             // and so on...
-    ){}
+    ) {}
     
 
     class FileRepository {

@@ -64,7 +64,7 @@ public class Listing12_14 {
     boolean ___;
     CloudSDK cloudSDK;
     CloudCDK cloudCDK;
-    record Message(){}
+    record Message() {}
     Message makeInputMessage() { return null; }
     interface Queue {
         void put(Message message);

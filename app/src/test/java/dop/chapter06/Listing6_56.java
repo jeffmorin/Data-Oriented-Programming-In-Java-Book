@@ -61,7 +61,7 @@ public class Listing6_56 {
   record UnderReview(String approvalId) implements Lifecycle {}
   record InvoiceId(String value) {}
   record Reason(String value) {}
-  record Customer(){}
+  record Customer() {}
   record Billable(LateFee<Draft> latefee) {}
   record NeedsApproval(LateFee<Draft> latefee) {}
   enum BillingStatus {ACCEPTED, REJECTED}

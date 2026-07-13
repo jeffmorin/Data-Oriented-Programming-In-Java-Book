@@ -59,7 +59,7 @@ public class Listing12_01 {
 
 
 
-    record Person(UUID id, String name){}
+    record Person(UUID id, String name) {}
     interface MyRepository {
         void save(Person person);
         Person load(UUID id);

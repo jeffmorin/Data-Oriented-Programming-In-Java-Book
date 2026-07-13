@@ -35,6 +35,6 @@ public class Listing11_51 {
 
 
 
-    record Account(String id){}
+    record Account(String id) {}
     Account mkAcnt() { return new Account(""); }
 }

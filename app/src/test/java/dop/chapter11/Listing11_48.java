@@ -44,6 +44,6 @@ public class Listing11_48 {
 
 
     enum Region {AMER}
-    record Account(String id){}
+    record Account(String id) {}
     static Account mkAcnt(Region region, USD spend) { return new Account(""); }
 }

@@ -82,7 +82,7 @@ public class Listing12_10 {
         return task.map(this::order).orElse(-1);
     }
 
-    record TaskId(String value){}
+    record TaskId(String value) {}
     sealed interface Task permits Started, Completed, Failed {}
     record Started(TaskId id) implements Task {}
     record Completed(TaskId id) implements Task {}

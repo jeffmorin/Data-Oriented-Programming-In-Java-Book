@@ -35,8 +35,8 @@ public class Listing11_36 {
 
     enum Region {AMER}
     enum Segment {ENTERPRISE}
-    record AccountId(String value){}
-    record Account(AccountId id, Region region, Object... rest){}
+    record AccountId(String value) {}
+    record Account(AccountId id, Region region, Object... rest) {}
     static Account mkAcnt() {
         return new Account(new AccountId(""), Region.AMER, 0.0);
     }

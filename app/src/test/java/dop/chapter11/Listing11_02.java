@@ -58,8 +58,8 @@ public class Listing11_02 {
     enum CustomerRating{GOOD, POOR;}
     enum InvoiceType { STANDARD, LATEFEE;}
     enum Status{ OPEN, CLOSED;}
-    record CustomerId(String value){}
-    record Invoice(CustomerId customerId, InvoiceType type, Status status, LocalDate dueOn){}
+    record CustomerId(String value) {}
+    record Invoice(CustomerId customerId, InvoiceType type, Status status, LocalDate dueOn) {}
     static class InvoiceService {
         static boolean isPastDue(Invoice invoice, CustomerRating rating, LocalDate currentDate) {
             return false;

@@ -59,8 +59,8 @@ public class Listing11_20 {
 
 
     enum Region {AMER}
-    record Account(String id){}
-    record Discount(String id){}
+    record Account(String id) {}
+    record Discount(String id) {}
     static Account mkAcnt(Region region, USD spend) { return new Account(""); }
     static <A> Set<A> union(Set<A> left, Set<A> right) { return left; }
     static class MyService {

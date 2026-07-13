@@ -18,10 +18,10 @@ public class Listing4_24_to_4_30 {
   @Test
   public void example() {
     // All defined in previous listings
-    record User(String name){}
+    record User(String name) {}
     record Step(String name) {}
     record Template(String name, List<Step> steps) {}
-    record Instance(String name, Instant date, Template template){}
+    record Instance(String name, Instant date, Template template) {}
     enum State {NOT_STARTED, COMPLETED, SKIPPED};
 
     record Status(    // ◄─────────────┐

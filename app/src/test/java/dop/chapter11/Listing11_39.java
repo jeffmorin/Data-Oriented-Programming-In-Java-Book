@@ -64,6 +64,6 @@ public class Listing11_39 {
 
     Random rand = new Random();
     enum Region {AMER, LA, EMEA}
-    record AccountId(String value){}
-    record Account(AccountId id, Region region, Object... rest){}
+    record AccountId(String value) {}
+    record Account(AccountId id, Region region, Object... rest) {}
 }

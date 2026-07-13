@@ -56,7 +56,7 @@ public class Listing12_09 {
 
 
 
-    record TaskId(String value){}
+    record TaskId(String value) {}
     sealed interface Task {
         record Started(TaskId id) implements Task {}
         record Completed(TaskId id) implements Task {}

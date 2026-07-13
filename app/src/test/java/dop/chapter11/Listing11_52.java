@@ -38,7 +38,7 @@ public class Listing11_52 {
 
 
     String rawCSV;
-    record Account(String id){}
+    record Account(String id) {}
     Account mkAcnt() { return new Account(""); }
     String toCSV(List<Account> accounts) { return ""; }
     static class FileRepository {

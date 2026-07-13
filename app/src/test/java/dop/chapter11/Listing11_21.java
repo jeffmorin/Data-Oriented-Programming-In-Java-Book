@@ -40,8 +40,8 @@ public class Listing11_21 {
 
 
     USD threshold;
-    record Account(USD spend){}
-    record Discount(String id){}
+    record Account(USD spend) {}
+    record Discount(String id) {}
     boolean __ = false;
     Discount ___;
 }

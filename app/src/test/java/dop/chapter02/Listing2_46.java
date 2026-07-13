@@ -15,9 +15,9 @@ public class Listing2_46 {
     enum Suit {Hearts, Diamonds, Clubs, Spades;}
     enum Rank {ONE, TWO, THREE, FOUR, FIVE, /*...*/;}
 
-    record Card(Rank rank, Suit suit){};
+    record Card(Rank rank, Suit suit) {};
 
-    record GameState(List<Card> drawPile, List<Card> discards){}
+    record GameState(List<Card> drawPile, List<Card> discards) {}
   }
 
 }

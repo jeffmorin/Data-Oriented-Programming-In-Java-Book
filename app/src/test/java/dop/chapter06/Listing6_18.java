@@ -25,9 +25,9 @@ public class Listing6_18 {
 
 
 
-  record Latefee(){}
-  record PastDue(){}
-  record Draft(){}
+  record Latefee() {}
+  record PastDue() {}
+  record Draft() {}
   static Function<Latefee,PastDue> collectPastDue = (latefee -> new PastDue());
   static Function<PastDue, Draft> buildDraft = (due -> new Draft());
 

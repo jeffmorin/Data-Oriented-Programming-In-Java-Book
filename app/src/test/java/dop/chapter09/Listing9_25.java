@@ -48,7 +48,7 @@ public class Listing9_25 {
         boolean hasGiftOptions;
 
         public void addOrUpdateItems(AddItemsRequest request) {}
-        public void recalculateSubtotal(){}
+        public void recalculateSubtotal() {}
     }
     @Data
     public static class CartItem {
@@ -165,7 +165,7 @@ public class Listing9_25 {
     @Test
     void example() {
         class __ {
-            record ValidCart(/*...*/){}
+            record ValidCart(/*...*/) {}
             class StoreController {
                 CartRepo cartRepo;
                 CartItemValidator cartItemValidator;
@@ -201,8 +201,8 @@ public class Listing9_25 {
                     return Response.OK(cart);
                 }
 
-                void checkIfEligibleForFreeShipping(Cart cart){}
-                void updateRecommendedItems(Cart cart){}
+                void checkIfEligibleForFreeShipping(Cart cart) {}
+                void updateRecommendedItems(Cart cart) {}
                 private void updateInventory(CartItem item) {/*...*/}
                 private void checkForPriceDriftAndUpdate(Cart cart) {/*...*/}
                 private void updateMetadata(CartItem item) {/*...*/}

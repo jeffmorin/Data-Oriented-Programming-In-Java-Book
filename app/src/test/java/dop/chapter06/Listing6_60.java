@@ -135,7 +135,7 @@ public class Listing6_60 {
   record Reason(String value) {}
   record CustomerId(String value) {}
   record ApprovalId(String value) {}
-  record Customer(String id, Address address, String approvalId){}
+  record Customer(String id, Address address, String approvalId) {}
   record EnrichedCustomer(CustomerId id, Address address) {}
   record Address(String value) {}
   record USD(BigDecimal value) {}

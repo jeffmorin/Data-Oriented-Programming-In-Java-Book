@@ -93,6 +93,6 @@ public class Listing11_55 {
         Optional<Boolean> premiumStatus,
         USD total,
         String tag
-    ){}
+    ) {}
     static RawData add(RawData a, RawData b) { return a; }
 }

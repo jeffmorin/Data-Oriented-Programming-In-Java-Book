@@ -60,8 +60,8 @@ public class Listing11_50 {
 
 
     enum Region {AMER, LA, EMEA}
-    record Discount(String id){}
-    record Account(Region region, USD spend){}
+    record Discount(String id) {}
+    record Account(Region region, USD spend) {}
     Account mkAcnt() { return new Account(AMER, new USD(BigDecimal.TEN)); }
     static <A> Set<A> diff(Set<A> left, Set<A> right) { return left; }
     static class MyService {

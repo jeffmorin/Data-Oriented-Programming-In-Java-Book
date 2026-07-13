@@ -44,8 +44,8 @@ public class Listing2_07 {
       this.y = y;
     }
 
-    public Double x(){return x;}
-    public Double y(){return y;}
+    public Double x() {return x;}
+    public Double y() {return y;}
 
     @Override
     public boolean equals(Object o) {

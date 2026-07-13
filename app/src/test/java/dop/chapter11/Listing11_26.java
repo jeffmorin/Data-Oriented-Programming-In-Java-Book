@@ -39,8 +39,8 @@ public class Listing11_26 {
 
 
     boolean __;
-    record Account(AccountId id){}
-    record AccountId(String value){}
+    record Account(AccountId id) {}
+    record AccountId(String value) {}
     interface NotificationService {
         void notify(AccountId id, String message);
     }

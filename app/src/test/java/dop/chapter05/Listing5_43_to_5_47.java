@@ -47,7 +47,7 @@ public class Listing5_43_to_5_47 {
        * One possible implementation for buildDraft
        * ───────────────────────────────────────────────────────
        */
-      LateFee<Draft> buildDraft(Customer customer, List<PastDue> invoices){
+      LateFee<Draft> buildDraft(Customer customer, List<PastDue> invoices) {
         LocalDate today = LocalDate.now();          //  ─┐
         PaymentTerms terms = contractsAPI           //   │  Most of our method's implementation ends up
             .getPaymentTerms(customer.getId());     //   │  devoted to managing "what's already there" rather
@@ -95,7 +95,7 @@ public class Listing5_43_to_5_47 {
       LateFee<Draft> buildDraft(Customer customer,
                                 PaymentTerms terms,
                                 BigDecimal feePercentage,
-                                List<PastDue> invoices){
+                                List<PastDue> invoices) {
           // Now I can be pure business logic!
           // return new LateFee<>(/*... */);
 

@@ -71,10 +71,10 @@ public class Listing11_14 {
 
     enum Region {US}
     enum Segment {ENTERPRISE}
-    record Sector(String value){}
-    record AccountId(String value){}
-    record Account(AccountId id, Region region, USD spend, Segment segment, Sector sector){}
-    record Result(String id){}
+    record Sector(String value) {}
+    record AccountId(String value) {}
+    record Account(AccountId id, Region region, USD spend, Segment segment, Sector sector) {}
+    record Result(String id) {}
     static class MyService {
         MyService(USD threshold) {}
         Set<Result> applyDiscounts(Set<Account> items) { return Set.of(); }

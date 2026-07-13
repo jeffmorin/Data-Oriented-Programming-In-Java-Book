@@ -25,8 +25,8 @@ public class Listing2_03 {
       this.y = y;
     }
 
-    public Double x(){return x;}
-    public Double y(){return y;}
+    public Double x() {return x;}
+    public Double y() {return y;}
     //            ▲
     //            └───── Getters are A-OK on value classes
     //

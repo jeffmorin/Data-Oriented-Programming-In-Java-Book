@@ -13,7 +13,7 @@ public class Listing6_45 {
    */
   ReviewedFee example(LateFee draft, Rules rules) {
     BigDecimal total = draft.total().value();
-    if (total.compareTo(rules.minimumFeeThreshold()) < 0){
+    if (total.compareTo(rules.minimumFeeThreshold()) < 0) {
                         //      ▲
                         //      └──── Here are the border cases. Too low? can’t bill. Too high?
                         //            Well… we’ll get to that below

@@ -48,7 +48,7 @@ public class Listing9_47 {
         boolean hasGiftOptions;
 
         public void addOrUpdateItems(AddItemsRequest request) {}
-        public void recalculateSubtotal(){}
+        public void recalculateSubtotal() {}
     }
     @Data
     public static class CartItem {
@@ -165,22 +165,22 @@ public class Listing9_47 {
     @Test
     void example() {
         class __ {
-            record ProductSeller(String productId, String sellerId){}
+            record ProductSeller(String productId, String sellerId) {}
             @With
             record Item(ProductSeller id,
                         Details details,
                         long desiredQty,
                         long availableQty,
                         BigDecimal lastNotifiedPrice,
-                        BigDecimal currentPrice){}
+                        BigDecimal currentPrice) {}
             record ValidCart(
                     Map<ProductSeller, Item> active,
                     Map<ProductSeller, Item> saved
-            ){}
+            ) {}
             record UnbalancedCart(
                     Map<ProductSeller, Item> active,
                     Map<ProductSeller, Item> saved
-            ){}
+            ) {}
             static ValidCart balance(UnbalancedCart cart) {
                 Map<ProductSeller, Item> active = new HashMap<>();
                 Map<ProductSeller, Item> saved = new HashMap<>();
