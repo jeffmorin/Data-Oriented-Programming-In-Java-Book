@@ -2,64 +2,50 @@ package dop.chapter12;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.IntStream;
+import java.util.Optional;
 
-import static java.lang.String.format;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class Listing12_13 {
 
   /**
    * ───────────────────────────────────────────────────────
-   * Listing 12.13
+   * Listing 12.14
    * ───────────────────────────────────────────────────────
-   * Hammering the item creation logic with a pool of threads
+   * Creating isolated dependencies for a test
    * ───────────────────────────────────────────────────────
    */
   @Test
-  void shortNamesIncrementWithoutGaps() throws Exception {
-    long end = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(10);
-    //   ^ These tests are less "arrange, act, assert" and more "run for a while
-    //     and see what happens"
-    String prefix = datagen.randomStr(3, 3);
-    Runnable requestSpammer = () -> {
-      while (System.currentTimeMillis() < end) {    //  Rather than us telling Java how
-          inventory.createItem(prefix);             //  to sequence the calls, we just let
-      }                                             //  it hammer away in a loop
-    };
+  void myCoolIntegrationTest () {
+    // spinning up infrastructure right before we run the test
+    Queue inputQueue = cloudSDK.createQueue("my-own-input-queue");
+    Queue outputQueue = cloudSDK.createQueue("my-own-output-queue");
+    Bucket bucket = cloudSDK.createBucket("bucket-for-my-test");
 
-    ExecutorService es = Executors.newFixedThreadPool(5);
-    CompletableFuture.allOf(
-        CompletableFuture.runAsync(requestSpammer, es),  //  ┐
-        CompletableFuture.runAsync(requestSpammer, es),  //  │
-        CompletableFuture.runAsync(requestSpammer, es),  //  │◄── and then run a bunch of those
-        CompletableFuture.runAsync(requestSpammer, es),  //  │    loops in parallel
-        CompletableFuture.runAsync(requestSpammer, es)   //  ┘
-    ).get();
+    // We construct our service using the placeholder infrastructure.
+    // (This, of course, depends on us using good Dependency
+    //  Injection practices)
+    MyService service = new MyService(inputQueue, outputQueue, bucket);
+    // now it's pretty standard arrange, act, assert.
+    // just that the "arrange" is done against service infrastructure
+    // that's completely isolated to our test
+    inputQueue.put(makeInputMessage());
 
-    List<String> shortCodesCreated = inventory.fetchAll()  //  ┐
-        .stream()                                          //  │
-        .sorted()                                          //  │
-        .map(Thing::shortCode)                             //  │
-        .toList();                                         //  │
+    service.run();
 
-    // Shortcodes should follow a strictly increasing seq  //  │
-    // e.g. [n, n+1, n+2, ..., n+n].                       //  │◄── The rest of the code is
-    List<String> shortCodesExpected = IntStream            //  │    the same, but it's now making
-        .range(0, shortCodesCreated.size())                //  │    a much more confident assertion
-        .boxed()                                           //  │
-        .map(num -> format("%s-%s", prefix, num))          //  │
-        .toList();                                         //  │
+    // then we make sure everything behaved the way we expect.
+    // for instance, the item in the input queue should have been consumed
+    assertEquals(inputQueue.poll(), Optional.empty());
+    // we want something in the output queue
+    assertNotEquals(outputQueue.poll(), Optional.empty());
+    // and something written to our bucket
+    assertEquals(__/* lookup item in bucket here */, __);
 
-    assertEquals(                                          //  │
-        shortCodesExpected,                                //  │
-        shortCodesCreated                                  //  │
-    );                                                     //  ┘
+    // then blow everything away
+    cloudCDK.deleteQueue(inputQueue.name());
+    cloudCDK.deleteQueue(outputQueue.name());
+    cloudCDK.deleteBucket(bucket.name());
   }
 
 
@@ -69,15 +55,31 @@ public class Listing12_13 {
 
 
 
-  DataGen datagen;
-  Inventory inventory;
-  record Thing(String shortCode) {}
-  interface DataGen {
-    String randomStr(int min, int max);
+  boolean __;
+  boolean ___;
+  CloudSDK cloudSDK;
+  CloudCDK cloudCDK;
+  record Message() {}
+  Message makeInputMessage() { return null; }
+  interface Queue {
+    void put(Message message);
+    Optional<Message> poll();
+    String name();
   }
-  interface Inventory {
-    void createItem(String prefix);
-    List<Thing> fetchAll();
+  interface Bucket {
+    String name();
+  }
+  interface CloudSDK {
+    Queue createQueue(String name);
+    Bucket createBucket(String name);
+  }
+  interface CloudCDK {
+    void deleteQueue(String name);
+    void deleteBucket(String name);
+  }
+  static class MyService {
+    MyService(Queue inputQueue, Queue outputQueue, Bucket bucket) {}
+    void run() {}
   }
 
 }

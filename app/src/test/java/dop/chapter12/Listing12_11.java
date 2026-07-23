@@ -1,46 +1,58 @@
 package dop.chapter12;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import static java.lang.String.format;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Random;
+import java.util.stream.IntStream;
+
+import org.junit.jupiter.api.Test;
 
 public class Listing12_11 {
 
   /**
    * ───────────────────────────────────────────────────────
-   * Listing 12.11
+   * Listing 12.12
    * ───────────────────────────────────────────────────────
-   * Verifying the database behaves the way we need it to
+   * Sequential integration tests can hide problems in your code
    * ───────────────────────────────────────────────────────
    */
   @Test
-  void onlyValidStateTransitionsAllowed() {
-    List<Optional<Job>> states = List.of(
-        Optional.empty(),
-        Optional.of(new Started(new TaskId("1"))),
-        Optional.of(new Failed(new TaskId("1"))),
-        Optional.of(new Completed(new TaskId("1")))
+  void shortNamesIncrementWithoutGaps() {
+    // Shortcodes are a 3 character prefix
+    String prefix = randPrefix();
+    List<Integer> sequence = IntStream.range(0, 1000).boxed().toList();
+    // Shortcodes should follow a strictly increasing seq
+    // e.g. [n, n+1, n+2, ..., n+n].
+    List<String> expected = sequence.stream()
+        .map(num -> format("%s-%s", prefix, num))
+        .toList();
+
+
+    // Creates thousands of new items so that we can verify the
+    // short names increase in a strict n+1 sequence
+    sequence.forEach((__) -> inventory.createItem(prefix));
+
+    List<String> shortCodesCreated = inventory.fetchAll()
+        .stream()
+        .sorted()
+        .map(Thing::shortCode)
+        .toList();
+
+    assertEquals(
+        expected,
+        shortCodesCreated
     );
+  }
 
-    MyRepository repo = new MyRepository(db);
-    for (var a : states) {
-      for (var b : states) {
-        if (order(a) < order(b)) {              //  ┐
-          Assertions.assertDoesNotThrow(() -> { //  │◄── If state A is "less than"
-            a.ifPresent(repo::save);            //  │    (can transition to) state B,
-            b.ifPresent(repo::save);            //  │    then the database should allow it
-          });                                   //  ┘
-        } else {
-          Assertions.assertThrows(ConditionFailedException.class, () -> {
-          //  ^ All invalid transitions should be caught by our Condition Expression
-            a.ifPresent(repo::save);
-            b.ifPresent(repo::save);
-          });
-        }
-      }
-    }
+  static Random rand = new Random();
+
+  String randPrefix() {
+    return String.format("%s%s%s",
+        (char)rand.nextInt('A', 'Z'),
+        (char)rand.nextInt('A', 'Z'),
+        (char)rand.nextInt('A', 'Z'));
   }
 
 
@@ -50,17 +62,15 @@ public class Listing12_11 {
 
 
 
-  Object db;
-  int order(Optional<Job> job) { return 0; }
-  record TaskId(String value) {}
-  interface Job {}
-  record Started(TaskId id) implements Job {}
-  record Failed(TaskId id) implements Job {}
-  record Completed(TaskId id) implements Job {}
-  static class MyRepository {
-    MyRepository(Object db) {}
-    void save(Job job) {}
+  DataGen datagen;
+  Inventory inventory;
+  record Thing(String shortCode) {}
+  interface DataGen {
+    String randomStr(int min, int max);
   }
-  static class ConditionFailedException extends RuntimeException {}
+  interface Inventory {
+    void createItem(String prefix);
+    List<Thing> fetchAll();
+  }
 
 }
