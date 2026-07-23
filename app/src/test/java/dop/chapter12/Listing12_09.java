@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import static java.lang.String.format;
 
@@ -11,18 +12,19 @@ public class Listing12_09 {
 
   /**
    * ───────────────────────────────────────────────────────
-   * Listing 12.10
+   * Listing 12.9
    * ───────────────────────────────────────────────────────
    * Verifying our transitions
    * ───────────────────────────────────────────────────────
    */
   @Test
   void encodingStateTransitionsViaOrdering() {
-    List<Optional<Task>> states = List.of(
-        Optional.empty(),                              //  ┐
-        Optional.of(new Started(new TaskId("1"))),     //  │◄── All of the states a task could be in,
-        Optional.of(new Failed(new TaskId("1"))),      //  │    including the "empty" state before it exists
-        Optional.of(new Completed(new TaskId("1")))    //  ┘
+    TaskId taskId = new TaskId(String.valueOf(random.nextInt()));
+    List<Optional<Job>> states = List.of(
+        Optional.empty(),                     //  ┐
+        Optional.of(new Started(taskId)),     //  │◄── All of the states a task could be in,
+        Optional.of(new Failed(taskId)),      //  │    including the "empty" state before it exists
+        Optional.of(new Completed(taskId))    //  ┘
     );
 
     for (var a : states) {                             //  ┐
@@ -64,7 +66,9 @@ public class Listing12_09 {
 
 
 
-  int order(Task task) {
+  static Random random = new Random();
+
+  int order(Job task) {
     return switch (task) {
       case Started __   -> 0;
       case Completed __ -> 1;
@@ -72,14 +76,14 @@ public class Listing12_09 {
     };
   }
 
-  int order(Optional<Task> task) {
+  int order(Optional<Job> task) {
     return task.map(this::order).orElse(-1);
   }
 
   record TaskId(String value) {}
-  sealed interface Task permits Started, Completed, Failed {}
-  record Started(TaskId id) implements Task {}
-  record Completed(TaskId id) implements Task {}
-  record Failed(TaskId id) implements Task {}
+  sealed interface Job permits Started, Completed, Failed {}
+  record Started(TaskId id) implements Job {}
+  record Completed(TaskId id) implements Job {}
+  record Failed(TaskId id) implements Job {}
 
 }

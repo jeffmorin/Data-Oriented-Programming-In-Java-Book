@@ -6,7 +6,7 @@ public class Listing12_07 {
 
   /**
    * ───────────────────────────────────────────────────────
-   * Listing 12.8
+   * Listing 12.7
    * ───────────────────────────────────────────────────────
    * Encoding our business rules into the database's expression language
    * ───────────────────────────────────────────────────────

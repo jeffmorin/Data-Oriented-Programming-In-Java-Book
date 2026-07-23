@@ -19,7 +19,7 @@ public class Listing12_01 {
   void weCanReadAndWriteFromTheDB() {
     //  Integration tests can start as humble "units" of functionality,
     // like sanity checking you can write to and read from your database.
-    MyRepository repo = MyDependecyInjector.myRepository();
+    MyRepository repo = MyDependencyInjector.myRepository();
     // We make a bit of data
     Person person = new Person(UUID.randomUUID(), "Bob");
     // Write it to the database
@@ -42,7 +42,7 @@ public class Listing12_01 {
     void save(Person person);
     Person load(UUID id);
   }
-  static class MyDependecyInjector {
+  static class MyDependencyInjector {
     static MyRepository myRepository() {
       return null;
     }

@@ -1,14 +1,15 @@
 package dop.chapter12;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Test;
 
 public class Listing12_02 {
 
@@ -22,6 +23,7 @@ public class Listing12_02 {
   @Test
   void taskGroupsAreLeasedForTheirPlannedDuration()
           throws InterruptedException {
+    Duration leaseDuration = Duration.ofSeconds(2);
     MyStorage storage = myDependencyInjector.myStorage();
     // Tasks in the same Group are "loosely mutually exclusive"
     // and cannot be scheduled at the same time
@@ -33,7 +35,7 @@ public class Listing12_02 {
         // tasks are leased until their expected completion
         // time. Once expired, new tasks can be scheduled even
         // if this one is still running.
-        .completeBy(Instant.now().plusSeconds(2))
+        .completeBy(Instant.now().plus(leaseDuration))
         .build();
 
     // We're starting with a clean slate. Tasks can be
@@ -41,8 +43,8 @@ public class Listing12_02 {
     storage.save(task);
     // And we find them as active in the task group
     assertEquals(
-        storage.findActive(task.taskGroup()),
-        Optional.of(task)
+        Optional.of(task),
+        storage.findActive(task.taskGroup())
     );
 
     // But if we make another task in the same group
@@ -57,8 +59,10 @@ public class Listing12_02 {
         storage.findActive(duplicateTask.taskGroup()),
         Optional.of(task)
     );
-    // Letting the lease elapse
-    Thread.sleep(TimeUnit.SECONDS.toMillis(2));
+    // We're verifying a live service and not mocking.
+    // So, we have to wait for the lease to elapse
+
+    Thread.sleep(leaseDuration);
     // now we don't find anything in the task group
     // It might still be running, but it's irrelevant to
     // the scheduler.
@@ -66,13 +70,13 @@ public class Listing12_02 {
         storage.findActive(task.taskGroup()),
         Optional.empty()
     );
-    // and now the orignial lease expired, our previously
+    // and now the original lease expired, our previously
     // rejected task can be scheduled
     storage.save(duplicateTask);
     // and becomes the active task
     assertEquals(
-        storage.findActive(duplicateTask.taskGroup()),
-        Optional.of(duplicateTask)
+        Optional.of(duplicateTask),
+        storage.findActive(duplicateTask.taskGroup())
     );
   }
 

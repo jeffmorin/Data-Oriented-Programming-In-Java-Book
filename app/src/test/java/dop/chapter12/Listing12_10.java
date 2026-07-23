@@ -5,23 +5,25 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 public class Listing12_10 {
 
   /**
    * ───────────────────────────────────────────────────────
-   * Listing 12.11
+   * Listing 12.10
    * ───────────────────────────────────────────────────────
    * Verifying the database behaves the way we need it to
    * ───────────────────────────────────────────────────────
    */
   @Test
   void onlyValidStateTransitionsAllowed() {
+    TaskId taskId = new TaskId(String.valueOf(random.nextInt()));
     List<Optional<Job>> states = List.of(
         Optional.empty(),
-        Optional.of(new Started(new TaskId("1"))),
-        Optional.of(new Failed(new TaskId("1"))),
-        Optional.of(new Completed(new TaskId("1")))
+        Optional.of(new Started(taskId)),
+        Optional.of(new Failed(taskId)),
+        Optional.of(new Completed(taskId))
     );
 
     MyRepository repo = new MyRepository(db);
@@ -39,6 +41,7 @@ public class Listing12_10 {
             b.ifPresent(repo::save);
           });
         }
+        repo.delete(taskId);
       }
     }
   }
@@ -50,6 +53,7 @@ public class Listing12_10 {
 
 
 
+  static Random random = new Random();
   Object db;
   int order(Optional<Job> job) { return 0; }
   record TaskId(String value) {}
@@ -60,6 +64,7 @@ public class Listing12_10 {
   static class MyRepository {
     MyRepository(Object db) {}
     void save(Job job) {}
+    void delete(TaskId taskId) {}
   }
   static class ConditionFailedException extends RuntimeException {}
 
